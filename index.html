@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Checkout Price Calculator</title>
+
+    <link rel="stylesheet" href="styling.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+  </head>
+  <body>
+        <h1 id="headTitle">Checkout</h1>
+
+        <div class="container">
+          <!-- Shopping cart button -->
+          <div id="shoppingCart">
+            <h1 id="cartTitle">Cart <i class="fas fa-shopping-cart"></i></h1>
+            <ul id="Cart">
+            </ul>
+
+            <button id="checkout" class="btn">Checkout <i class="fas fa-shopping-cart"></i></button>
+          </div>
+          <!-- Add tax and Add discount buttons -->
+          <div id="buttonsPrice">
+            <div id="buttons">
+              <div id="taxDiv">
+                <button id="addTax" class="btn">Add Tax <i class="fas fa-percentage"></i></button>
+                <input type="text" placeholder="Enter the Number only" id="taxInput" onfocusout="taxFocusOut()"></input>
+              </div>
+              <div id="discountDiv">
+                <button id="addDiscount" class="btn">Add Discount <i class="fas fa-barcode"></i></button>
+                <input type="text" placeholder="Enter Voucher Code" id="discountInput" onfocusout="discountFocusOut()"></input>
+              </div>
+            </div>
+            <!-- Display base price, tax, and total price (after all calculations) -->
+            <div id="priceStats">
+              <h3>Base Price: $<span id="basePrice">0</span></h3>
+              <h3>Tax: <span id="tax">0</span>%</h3>
+              <h3>Total Price: $<span id="finalPrice">0</span></h3>
+            </div>
+          </div>
+
+          <!-- "List" of code chunks, each representing a particular item being offered in the virtual store. Check README.md for more information. -->
+          <div id="itemsList">
+              <h4>Add to Cart</h4>
+            <div class="scrolling-wrapper row flex-row flex-nowrap my-auto">
+                                <!-- For example, this code chunk represents a "Real Madrid Jersey (Men's Football Kit)" with the price "$146.99" and image "images/realmadridjersey.png" -->
+                                <div class="col-5">
+                                    <div class="card card-block" id="item1">
+                                        <img src="images/realmadridjersey.png">
+                                        <h3>Real Madrid Jersey (Men's Football Kit)</h3>
+                                        <p><b>$146.99</b></p>
+                                        <div class="addremove">
+                                        <button class="addbtn" id="additem1"><i class="fas fa-plus"></i></button>
+                                        <button class="removebtn" id="removeitem1"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem1">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="card card-block" id="item2">
+                                        <img src="images/macbookair.png">
+                                        <h3>Apple Macbook Air 19-Inch 2020 Model</h3>
+                                        <p><b>$2,824.99</b></p>
+                                        <div class="addremove">
+                                        <button class="addbtn" id="additem2"><i class="fas fa-plus"></i></button>
+                                        <button class="removebtn" id="removeitem2"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem2">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="card card-block" id="item3">
+                                        <img src="images/samsungwatch.png">
+                                        <h3>Samsung S3 Gear Frontier Smartwatch</h3>
+                                        <p><b>$777.29</b></p>
+                                        <div class="addremove">
+                                        <button class="addbtn" id="additem3"><i class="fas fa-plus"></i></button>
+                                        <button class="removebtn" id="removeitem3"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem3">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="card card-block" id="item4">
+                                        <img src="images/nikehoodie.png">
+                                        <h3>Nike Tech Fleece - Tracksuit Hoodie</h3>
+                                        <p><b>$167.99</b></p>
+                                        <div class="addremove">
+                                          <button class="addbtn" id="additem4"><i class="fas fa-plus"></i></button>
+                                          <button class="removebtn" id="removeitem4"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem4">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="card card-block" id="item5">
+                                        <img src="images/ps5console.png">
+                                        <h3>Playstation 5 - Digital Edition (Pre-Order)</h3>
+                                        <p><b>$399.99</b></p>
+                                        <div class="addremove">
+                                        <button class="addbtn" id="additem5"><i class="fas fa-plus"></i></button>
+                                        <button class="removebtn" id="removeitem5"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem5">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5">
+                                    <div class="card card-block" id="item6">
+                                        <img src="images/boots.png">
+                                        <h3>Nike CR7 Mercurial Superfly Football Boots</h3>
+                                        <p><b>$209.99</b></p>
+                                        <div class="addremove">
+                                        <button class="addbtn" id="additem6"><i class="fas fa-plus"></i></button>
+                                        <button class="removebtn" id="removeitem6"><i class="fas fa-minus"></i></button>
+                                        </div>
+
+                                        <div class="quantity">
+                                          Quantity: <span id="quantityItem6">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
